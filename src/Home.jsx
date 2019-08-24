@@ -6,14 +6,27 @@ import "./index.css";
 
 const styles = {
   home: {},
-  bitcoinLogo: {
+  button: {
+    backgroundColor: "#304ffe",
+    border: "none",
+    boxShadow: "1px 1px 5px #ededee",
+    color: "#fff",
+    fontSize: "1.5rem",
+    fontWeight: 200,
+    letterSpacing: 3,
     marginTop: "3rem",
+    padding: "0.8rem 0",
+    textShadow: "0 2px 2px #333",
+    width: "100%"
+  },
+  bitcoinLogo: {
+    marginTop: "2.5rem",
     width: "100%"
   },
   enterTransaction: {
     fontSize: "2.5rem",
     marginBottom: "2rem",
-    marginTop: "3rem",
+    marginTop: "2.5rem",
     textAlign: "center"
   },
   label: {
@@ -75,21 +88,24 @@ class Home extends Component {
                 yearDropdownItemNumber={20}
               />
 
-              <label>Selling Date</label>
-              {/* 
-            <DatePicker
-              selected={globalState.sellingDate}
-              onChange={handleSellingDate}
-              showMonthDropdown
-              showYearDropdown
-              maxDate={moment()}
-              useShortMonthInDropdown
-              scrollableYearDropdown
-              yearDropdownItemNumber={5}
-            />
+              <label style={styles.label}>Selling Date</label>
+              <DatePicker
+                selected={globalState.sellingDate}
+                onChange={handleSellingDate}
+                showMonthDropdown
+                showYearDropdown
+                maxDate={moment()}
+                useShortMonthInDropdown
+                scrollableYearDropdown
+                yearDropdownItemNumber={5}
+              />
 
-            <button onClick={() => setLocation("results")}>Check Profit</button> 
-            */}
+              <button
+                style={styles.button}
+                onClick={() => setLocation("results")}
+              >
+                Check Profit
+              </button>
             </div>
           </div>
         </div>

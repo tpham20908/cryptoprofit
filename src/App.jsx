@@ -49,8 +49,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const { fsym, sellingDate, tsym } = this.state;
-    const data = await this.getData(fsym, tsym, sellingDate);
+    const { fsym, tsym, sellingDate } = this.state;
+    const data = await this.getData(fsym, tsym, sellingDate.unix());
     this.setState({ buyingData: data, sellingData: data });
   }
 
@@ -69,16 +69,14 @@ class App extends Component {
 
   handleBuyingDate = async date => {
     const { fsym, tsym } = this.state;
-    // const ts = date.unix();
-    const ts = Math.floor(new Date(date).getTime() / 1000);
+    const ts = date.unix();
     const buyingData = await this.getData(fsym, tsym, ts);
     this.setState({ buyingDate: date, buyingData });
   };
 
   handleSellingDate = async date => {
     const { fsym, tsym } = this.state;
-    // const ts = date.unix();
-    const ts = Math.floor(new Date(date).getTime() / 1000);
+    const ts = date.unix();
     const sellingData = await this.getData(fsym, tsym, ts);
     this.setState({ sellingDate: date, sellingData });
   };

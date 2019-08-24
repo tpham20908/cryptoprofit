@@ -1,5 +1,47 @@
 import React, { Component } from "react";
 
+const styles = {
+  active: {
+    background: "#304ffe"
+  },
+  ads: {
+    backgroundColor: "#888",
+    height: 98,
+    margin: "2rem auto",
+    maxWidth: 728
+  },
+  highlightedText: {
+    color: "#07d5fe",
+    fontSize: "4rem",
+    fontWeight: 100,
+    margin: "2rem 0"
+  },
+  mainBtn: {
+    color: "#fff",
+    textDecoration: "none",
+    display: "inline-block",
+    padding: "10px 20px",
+    borderRadius: 3,
+    border: "1px solid #304ffe",
+    margin: "3rem 0.2rem",
+    transition: "all 0.2s ease-in-out",
+
+    "&:hover": {
+      background: "#304ffe"
+    }
+  },
+  profitPercentage: {
+    fontWeight: 300
+  },
+  results: {
+    textAlign: "center"
+  },
+  statement: {
+    fontSize: "2rem",
+    fontWeight: 200
+  }
+};
+
 class Results extends Component {
   formatDate = (day, month, year) => {
     let monthText;
@@ -67,12 +109,8 @@ class Results extends Component {
       tsym
     } = this.props;
 
-    // const buyingDateConverted = new Date(buyingDate.unix() * 1000);
-    // const buyingDateConverted = new Date(buyingDate).getTime() * 1000;
-    // const sellingDateConverted = new Date(sellingDate.unix() * 1000);
-    // const sellingDateConverted = new Date(sellingDate).getTime() * 1000;
-    const buyingDateConverted = new Date(buyingDate);
-    const sellingDateConverted = new Date(sellingDate);
+    const buyingDateConverted = new Date(buyingDate.unix() * 1000);
+    const sellingDateConverted = new Date(sellingDate.unix() * 1000);
     const buyingDay = buyingDateConverted.getDate();
     const buyingMonth = buyingDateConverted.getMonth() + 1;
     const buyingYear = buyingDateConverted.getFullYear();
@@ -96,32 +134,32 @@ class Results extends Component {
     const sellingAmount = (cryptoAmount * sellingData[fsym][tsym]).toFixed(2);
 
     return (
-      <section id="results">
+      <section style={styles.results}>
         <div className="container">
           <div className="col-md-12">
-            <div className="ads" />
+            <div style={styles.ads}>Google ads</div>
           </div>
           <div className="col-md-12">
-            <h2>
+            <h2 style={styles.statement}>
               Your ${buyingAmount} {tsym} investment on {formatedBuyingDate}{" "}
               would be
             </h2>
-            <h1>${sellingAmount}</h1>
-            <h2>
+            <h1 style={styles.highlightedText}>${sellingAmount}</h1>
+            <h2 style={styles.statement}>
               on {formatedSellingDate}.{" "}
-              <span className="profit-percentage">
+              <span style={styles.profitPercentage}>
                 {this.profitStatement(buyingAmount, sellingAmount)}
               </span>
             </h2>
-            <a href="/" className="main-btn active">
+            <a href="/" style={{ ...styles.mainBtn, ...styles.active }}>
               Create account to keep track of all your records
             </a>
-            <a href="/" className="main-btn">
+            <a href="/" style={styles.mainBtn}>
               Another transaction
             </a>
           </div>
           <div className="col-md-12">
-            <div className="ads" />
+            <div style={styles.ads}>Google ads</div>
           </div>
         </div>
       </section>
