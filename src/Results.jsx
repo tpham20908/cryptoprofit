@@ -7,7 +7,7 @@ const styles = {
   ads: {
     backgroundColor: "#888",
     height: 98,
-    margin: "2rem auto",
+    margin: "1rem auto",
     maxWidth: 728
   },
   highlightedText: {

@@ -55,7 +55,7 @@ class Home extends Component {
       <section style={styles.home}>
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-5">
               <img
                 style={styles.bitcoinLogo}
                 src="img/bitcoinLogo.png"
@@ -63,42 +63,63 @@ class Home extends Component {
               />
             </div>
 
+            <div className="col-md-1" />
+
             <div className="col-md-6">
               <h2 style={styles.enterTransaction}>Enter Transaction</h2>
 
-              <label htmlFor="amount" style={styles.label}>
-                Crypto Amount
-              </label>
-              <input
-                style={styles.input}
-                type="number"
-                name="amount"
-                value={globalState.cryptoAmount}
-                onChange={setCryptoAmount}
-              />
-              <label style={styles.label}>Buying Date</label>
-              <DatePicker
-                selected={globalState.buyingDate}
-                onChange={handleBuyingDate}
-                showMonthDropdown
-                showYearDropdown
-                maxDate={moment()}
-                useShortMonthInDropdown
-                scrollableYearDropdown
-                yearDropdownItemNumber={20}
-              />
-
-              <label style={styles.label}>Selling Date</label>
-              <DatePicker
-                selected={globalState.sellingDate}
-                onChange={handleSellingDate}
-                showMonthDropdown
-                showYearDropdown
-                maxDate={moment()}
-                useShortMonthInDropdown
-                scrollableYearDropdown
-                yearDropdownItemNumber={5}
-              />
+              <div className="row">
+                <div className="col-md-6">
+                  <label htmlFor="amount" style={styles.label}>
+                    Amount
+                  </label>
+                  <input
+                    style={styles.input}
+                    type="number"
+                    name="amount"
+                    value={globalState.cryptoAmount}
+                    onChange={setCryptoAmount}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <label htmlFor="type" style={styles.label}>
+                    Type
+                  </label>
+                  <input
+                    style={styles.input}
+                    type="number"
+                    name="amount"
+                    value={globalState.cryptoAmount}
+                    onChange={setCryptoAmount}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <label style={styles.label}>Buying Date</label>
+                  <DatePicker
+                    selected={globalState.buyingDate}
+                    onChange={handleBuyingDate}
+                    showMonthDropdown
+                    showYearDropdown
+                    maxDate={moment()}
+                    useShortMonthInDropdown
+                    scrollableYearDropdown
+                    yearDropdownItemNumber={20}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <label style={styles.label}>Selling Date</label>
+                  <DatePicker
+                    selected={globalState.sellingDate}
+                    onChange={handleSellingDate}
+                    showMonthDropdown
+                    showYearDropdown
+                    maxDate={moment()}
+                    useShortMonthInDropdown
+                    scrollableYearDropdown
+                    yearDropdownItemNumber={5}
+                  />
+                </div>
+              </div>
 
               <button
                 style={styles.button}
