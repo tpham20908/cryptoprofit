@@ -21,11 +21,12 @@ const styles = {
   },
   bitcoinLogo: {
     marginTop: "2.5rem",
+    paddingRight: "4rem",
     width: "100%"
   },
   enterTransaction: {
     fontSize: "2.5rem",
-    marginBottom: "2rem",
+    marginBottom: "1rem",
     marginTop: "2.5rem",
     textAlign: "center"
   },
@@ -63,9 +64,7 @@ class Home extends Component {
               />
             </div>
 
-            <div className="col-md-1" />
-
-            <div className="col-md-6">
+            <div className="col-md-7">
               <h2 style={styles.enterTransaction}>Enter Transaction</h2>
 
               <div className="row">
@@ -85,13 +84,20 @@ class Home extends Component {
                   <label htmlFor="type" style={styles.label}>
                     Type
                   </label>
-                  <input
-                    style={styles.input}
-                    type="number"
-                    name="amount"
-                    value={globalState.cryptoAmount}
-                    onChange={setCryptoAmount}
-                  />
+                  <select>
+                    <option value="BNB">Binance Coin</option>
+                    <option value="BTC">Bitcoin</option>
+                    <option value="BCH">Bitcoin Cash</option>
+                    <option value="BTG">Bitcoin Gold</option>
+                    <option value="DASH">Dash</option>
+                    <option value="EOS">EOS</option>
+                    <option value="ETH">Ethereum</option>
+                    <option value="ETC">Ethereum Classic</option>
+                    <option value="LTC">LiteCoin</option>
+                    <option value="MONA">MonaCoin</option>
+                    <option value="XMR">Monero</option>
+                    <option value="XLM">Stellar</option>
+                  </select>
                 </div>
                 <div className="col-md-6">
                   <label style={styles.label}>Buying Date</label>

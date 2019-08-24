@@ -16,6 +16,19 @@ input {
   width: 100%;
 }
 
+select {
+  background: transparent;
+  border: 2px solid inherit;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 100;
+  letter-spacing: 2px;
+  padding: 0.6rem;
+  width: 100%;
+}
+
 /* react-datepicker */
 .react-datepicker-wrapper,
 .react-datepicker__input-container {

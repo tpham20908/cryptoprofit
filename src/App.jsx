@@ -40,7 +40,7 @@ class App extends Component {
       buyingData: {},
       buyingDate: moment(),
       cryptoAmount: "",
-      fsym: "ETH", // from symbol
+      fsym: "ETH", // from symbol: bitcoin, litecoin, ethereum, monero, nem, ripple, namecoin, peercoin, dash
       location: "home",
       sellingDate: moment(),
       sellingData: {},
