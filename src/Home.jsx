@@ -39,6 +39,10 @@ const styles = {
     marginBottom: "1rem",
     marginTop: "1.5rem",
     textTransform: "uppercase"
+  },
+  select: {
+    fontSize: "1.8rem",
+    height: "4.5rem"
   }
 };
 
@@ -46,9 +50,10 @@ class Home extends Component {
   render() {
     const {
       globalState,
-      handleBuyingDate,
-      handleSellingDate,
+      handleBuyingData,
+      handleSellingData,
       setCryptoAmount,
+      setCryptoType,
       setLocation
     } = this.props;
 
@@ -82,9 +87,18 @@ class Home extends Component {
                 </div>
                 <div className="col-md-6">
                   <label htmlFor="type" style={styles.label}>
-                    Type
+                    Type{" "}
+                    {globalState.cryptoType && (
+                      <span>({globalState.cryptoType})</span>
+                    )}
                   </label>
-                  <select>
+                  <select
+                    disabled={!globalState.cryptoAmount}
+                    style={styles.select}
+                    value={globalState.cryptoType}
+                    onChange={setCryptoType}
+                  >
+                    <option></option>
                     <option value="BNB">Binance Coin</option>
                     <option value="BTC">Bitcoin</option>
                     <option value="BCH">Bitcoin Cash</option>
@@ -102,8 +116,9 @@ class Home extends Component {
                 <div className="col-md-6">
                   <label style={styles.label}>Buying Date</label>
                   <DatePicker
+                    disabled={!globalState.cryptoType}
                     selected={globalState.buyingDate}
-                    onChange={handleBuyingDate}
+                    onChange={handleBuyingData}
                     showMonthDropdown
                     showYearDropdown
                     maxDate={moment()}
@@ -115,11 +130,13 @@ class Home extends Component {
                 <div className="col-md-6">
                   <label style={styles.label}>Selling Date</label>
                   <DatePicker
+                    disabled={!globalState.buyingDate}
                     selected={globalState.sellingDate}
-                    onChange={handleSellingDate}
+                    onChange={handleSellingData}
                     showMonthDropdown
                     showYearDropdown
                     maxDate={moment()}
+                    minDate={globalState.buyingDate}
                     useShortMonthInDropdown
                     scrollableYearDropdown
                     yearDropdownItemNumber={5}

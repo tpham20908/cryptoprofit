@@ -103,10 +103,10 @@ class Results extends Component {
       buyingDate,
       buyingData,
       cryptoAmount,
-      fsym,
+      cryptoType,
       sellingDate,
       sellingData,
-      tsym
+      tsyms
     } = this.props;
 
     const buyingDateConverted = new Date(buyingDate.unix() * 1000);
@@ -130,8 +130,13 @@ class Results extends Component {
       sellingYear
     );
 
-    const buyingAmount = (cryptoAmount * buyingData[fsym][tsym]).toFixed(2);
-    const sellingAmount = (cryptoAmount * sellingData[fsym][tsym]).toFixed(2);
+    const buyingAmount = (cryptoAmount * buyingData[cryptoType][tsyms]).toFixed(
+      2
+    );
+
+    const sellingAmount = (
+      cryptoAmount * sellingData[cryptoType][tsyms]
+    ).toFixed(2);
 
     return (
       <section style={styles.results}>
@@ -141,7 +146,7 @@ class Results extends Component {
           </div>
           <div className="col-md-12">
             <h2 style={styles.statement}>
-              Your ${buyingAmount} {tsym} investment on {formatedBuyingDate}{" "}
+              Your ${buyingAmount} {tsyms} investment on {formatedBuyingDate}{" "}
               would be
             </h2>
             <h1 style={styles.highlightedText}>${sellingAmount}</h1>

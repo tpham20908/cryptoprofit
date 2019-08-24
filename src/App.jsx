@@ -38,24 +38,18 @@ class App extends Component {
     super();
     this.state = {
       buyingData: {},
-      buyingDate: moment(),
+      buyingDate: null,
       cryptoAmount: "",
-      fsym: "ETH", // from symbol: bitcoin, litecoin, ethereum, monero, nem, ripple, namecoin, peercoin, dash
+      cryptoType: "",
       location: "home",
-      sellingDate: moment(),
+      sellingDate: null,
       sellingData: {},
-      tsym: "USD" // to symbol -- can be multiple value 'BTC,USD,CAD,EUR'
+      tsyms: "USD" // to symbol -- can be multiple value 'BTC,USD,CAD,EUR'
     };
   }
 
-  async componentDidMount() {
-    const { fsym, tsym, sellingDate } = this.state;
-    const data = await this.getData(fsym, tsym, sellingDate.unix());
-    this.setState({ buyingData: data, sellingData: data });
-  }
-
-  getData = (fsym, tsym, ts) => {
-    const url = `https://min-api.cryptocompare.com/data/pricehistorical?fsym=${fsym}&tsyms=${tsym}&ts=${ts}`;
+  getData = (cryptoType, tsyms, ts) => {
+    const url = `https://min-api.cryptocompare.com/data/pricehistorical?fsym=${cryptoType}&tsyms=${tsyms}&ts=${ts}`;
 
     return new Promise((resolve, reject) => {
       axios
@@ -67,17 +61,17 @@ class App extends Component {
     });
   };
 
-  handleBuyingDate = async date => {
-    const { fsym, tsym } = this.state;
+  handleBuyingData = async date => {
+    const { cryptoType, tsyms } = this.state;
     const ts = date.unix();
-    const buyingData = await this.getData(fsym, tsym, ts);
+    const buyingData = await this.getData(cryptoType, tsyms, ts);
     this.setState({ buyingDate: date, buyingData });
   };
 
-  handleSellingDate = async date => {
-    const { fsym, tsym } = this.state;
+  handleSellingData = async date => {
+    const { cryptoType, tsyms } = this.state;
     const ts = date.unix();
-    const sellingData = await this.getData(fsym, tsym, ts);
+    const sellingData = await this.getData(cryptoType, tsyms, ts);
     this.setState({ sellingDate: date, sellingData });
   };
 
@@ -88,10 +82,11 @@ class App extends Component {
       default:
         return (
           <Home
-            handleBuyingDate={this.handleBuyingDate}
-            handleSellingDate={this.handleSellingDate}
+            handleBuyingData={this.handleBuyingData}
+            handleSellingData={this.handleSellingData}
             globalState={this.state}
             setCryptoAmount={this.setCryptoAmount}
+            setCryptoType={this.setCryptoType}
             setLocation={this.setLocation}
           />
         );
@@ -100,6 +95,10 @@ class App extends Component {
 
   setCryptoAmount = event => {
     this.setState({ cryptoAmount: event.target.value });
+  };
+
+  setCryptoType = event => {
+    this.setState({ cryptoType: event.target.value });
   };
 
   setLocation = location => {
