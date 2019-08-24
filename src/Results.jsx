@@ -92,8 +92,8 @@ class Results extends Component {
     const result = Math.abs(profitPercentage - 100).toFixed(2);
     const statement =
       profitPercentage >= 100
-        ? `You would make ${result}% profit.`
-        : `You would lose ${result}% your investment.`;
+        ? `You'd have made ${result}% profit.`
+        : `You'd have lost ${result}% your investment.`;
 
     return statement;
   };
