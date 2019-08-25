@@ -86,7 +86,7 @@ class Home extends Component {
               <div className="row">
                 <div className="col-md-6">
                   <label htmlFor="amount" style={styles.label}>
-                    Amount
+                    Crypto Amount
                   </label>
                   <input
                     style={styles.input}
@@ -96,9 +96,10 @@ class Home extends Component {
                     onChange={setCryptoAmount}
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label htmlFor="type" style={styles.label}>
-                    Type{" "}
+                    Crypto Type{" "}
                     {globalState.cryptoType && (
                       <span>({globalState.cryptoType})</span>
                     )}
@@ -124,6 +125,7 @@ class Home extends Component {
                     <option value="XLM">Stellar</option>
                   </select>
                 </div>
+
                 <div className="col-md-6">
                   <label style={styles.label}>Buying Date</label>
                   <DatePicker
@@ -138,6 +140,7 @@ class Home extends Component {
                     yearDropdownItemNumber={10}
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label style={styles.label}>Selling Date</label>
                   <DatePicker
