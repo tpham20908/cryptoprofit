@@ -37,11 +37,10 @@ const styles = {
     fontWeight: 600,
     letterSpacing: 2,
     marginBottom: "1rem",
-    marginTop: "1.5rem",
-    textTransform: "uppercase"
+    marginTop: "1.5rem"
   },
   note: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 200,
     textAlign: "center"
   },
@@ -78,8 +77,8 @@ class Home extends Component {
               <h2 style={styles.enterTransaction}>Enter Transaction</h2>
               <p style={styles.note}>
                 <em>
-                  (Please enter AMOUNT, TYPE, BUYING DATE and SELLING DATE in
-                  order)
+                  (Please enter Crypto Amount, Crypto Type, Buying Date and
+                  Selling Date in order)
                 </em>
               </p>
 
