@@ -40,6 +40,11 @@ const styles = {
     marginTop: "1.5rem",
     textTransform: "uppercase"
   },
+  note: {
+    fontSize: 14,
+    fontWeight: 200,
+    textAlign: "center"
+  },
   select: {
     fontSize: "1.8rem",
     height: "4.5rem"
@@ -71,6 +76,12 @@ class Home extends Component {
 
             <div className="col-md-7">
               <h2 style={styles.enterTransaction}>Enter Transaction</h2>
+              <p style={styles.note}>
+                <em>
+                  (Please enter AMOUNT, TYPE, BUYING DATE and SELLING DATE in
+                  order)
+                </em>
+              </p>
 
               <div className="row">
                 <div className="col-md-6">
@@ -124,7 +135,7 @@ class Home extends Component {
                     maxDate={moment()}
                     useShortMonthInDropdown
                     scrollableYearDropdown
-                    yearDropdownItemNumber={20}
+                    yearDropdownItemNumber={10}
                   />
                 </div>
                 <div className="col-md-6">

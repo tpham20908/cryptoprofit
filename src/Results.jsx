@@ -84,7 +84,7 @@ class Results extends Component {
         break;
     }
 
-    return `${monthText} ${day} ${year}`;
+    return `${monthText} ${day}, ${year}`;
   };
 
   profitStatement = (buyingAmount, sellingAmount) => {
@@ -146,8 +146,8 @@ class Results extends Component {
           </div>
           <div className="col-md-12">
             <h2 style={styles.statement}>
-              Your ${buyingAmount} {tsyms} investment on {formatedBuyingDate}{" "}
-              would be
+              Your ${buyingAmount} {tsyms} investment in {cryptoType} on{" "}
+              {formatedBuyingDate} would be
             </h2>
             <h1 style={styles.highlightedText}>${sellingAmount}</h1>
             <h2 style={styles.statement}>
