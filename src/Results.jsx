@@ -138,11 +138,29 @@ class Results extends Component {
       cryptoAmount * sellingData[cryptoType][tsyms]
     ).toFixed(2);
 
+    const src1 =
+      "//rcm-na.amazon-adsystem.com/e/cm?o=15&p=48&l=ur1&category=best_seller&banner=0R89PS3ZPA2J8FG6BRG2&f=ifr&linkID=a82e3eb0e0943f04718e45bc1c3e7513&t=lechateau2090-20&tracking_id=lechateau2090-20";
+
+    const src2 =
+      "//rcm-na.amazon-adsystem.com/e/cm?o=15&p=48&l=ur1&category=best_seller&banner=0VMK54TEA544RV43F482&f=ifr&linkID=e2e87024434525c6bd6b8c0ad76433d9&t=lechateau2090-20&tracking_id=lechateau2090-20";
+
     return (
       <section style={styles.results}>
         <div className="container">
           <div className="col-md-12">
-            <div style={styles.ads}>Google ads</div>
+            <div style={styles.ads}>
+              <iframe
+                src={src1}
+                width="728"
+                height="90"
+                scrolling="no"
+                border="0"
+                marginwidth="0"
+                style={{ border: "none" }}
+                frameborder="0"
+                title="ad1"
+              ></iframe>
+            </div>
           </div>
           <div className="col-md-12">
             <h2 style={styles.statement}>
@@ -164,7 +182,19 @@ class Results extends Component {
             </a>
           </div>
           <div className="col-md-12">
-            <div style={styles.ads}>Google ads</div>
+            <div style={styles.ads}>
+              <iframe
+                src={src2}
+                width="728"
+                height="90"
+                scrolling="no"
+                border="0"
+                marginwidth="0"
+                style={{ border: "none" }}
+                frameborder="0"
+                title="ad2"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>

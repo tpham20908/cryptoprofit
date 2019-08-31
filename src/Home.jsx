@@ -66,11 +66,15 @@ class Home extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-5">
-              <img
-                style={styles.bitcoinLogo}
-                src="img/bitcoinLogo.png"
-                alt="Bitcoin"
-              />
+              <div className="row">
+                <div className="col-xs-12">
+                  <img
+                    style={styles.bitcoinLogo}
+                    src="img/bitcoinLogo.png"
+                    alt="Bitcoin"
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="col-md-7">
